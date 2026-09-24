@@ -1,0 +1,79 @@
+{
+  "name": "@ajentify/cli",
+  "version": "0.2.0",
+  "description": "CLI and programmatic API for deploying Ajentify stages from a declarative ajentify.json manifest. Inlines prompt files, Python tool code, and Zod schemas so each resource can be authored in its own file.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Ajentify",
+  "homepage": "https://ajentify.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajentify/ajentify-cli"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "bin": {
+    "ajentify": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "jiti": "^2.4.2",
+    "picocolors": "^1.1.1"
+  },
+  "optionalDependencies": {
+    "zod-to-json-schema": "^3.24.1"
+  },
+  "peerDependencies": {
+    "zod": "^3.22.0 || ^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "zod": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8",
+    "zod": "^4.0.0",
+    "zod-to-json-schema": "^3.24.1"
+  },
+  "keywords": [
+    "ajentify",
+    "ai",
+    "agents",
+    "deploy",
+    "iac",
+    "manifest",
+    "cli"
+  ]
+}

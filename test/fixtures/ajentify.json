@@ -1,0 +1,30 @@
+{
+  "$schema": "https://api.ajentify.com/docs/manifest-schema.json",
+  "tools": {
+    "sort_item": {
+      "name": "sort_item",
+      "description": "Decide which bin a classified item belongs in.",
+      "input_schema_file": "schemas/sortItem.ts#SortItemInput",
+      "code_file": "tools/sort_item.py",
+      "pass_context": true
+    }
+  },
+  "sres": {
+    "classify": {
+      "name": "Classify item",
+      "description": "Classify an item into a category.",
+      "output_schema_file": "schemas/classifyOutput.ts#ClassifyOutput",
+      "prompt_template_file": "prompts/classify.md",
+      "variable_names": ["ITEM_DESCRIPTION"]
+    }
+  },
+  "agents": {
+    "pod": {
+      "name": "Pod",
+      "description": "Waste-sorting assistant.",
+      "prompt_file": "prompts/pod.md",
+      "agent_speaks_first": true,
+      "tools": ["sort_item", "get_time"]
+    }
+  }
+}

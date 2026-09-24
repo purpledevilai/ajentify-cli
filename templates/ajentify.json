@@ -1,0 +1,6 @@
+{
+  "$schema": "https://api.ajentify.com/docs/manifest-schema.json",
+  "tools": {},
+  "sres": {},
+  "agents": {}
+}
